@@ -59,14 +59,22 @@ export const teamMemberSchema = z
 
 export const teamSchema = z
   .array(teamMemberSchema)
-  .length(5, 'The team must contain exactly five members.')
+  .length(6, 'The team must contain exactly six members.')
   .refine(
     (members) => new Set(members.map((member) => member.id)).size === members.length,
     'Member identifiers must be unique.',
   )
   .refine(
-    (members) => members.some((member) => member.role === 'Founder & CEO'),
-    'Include a Founder & CEO.',
+    (members) => members.some((member) => member.role === 'Founder & Team Lead'),
+    'Include a Founder & Team Lead.',
+  )
+  .refine(
+    (members) => members.some((member) => member.role === 'Full Stack Engineer'),
+    'Include a Full Stack Engineer.',
+  )
+  .refine(
+    (members) => members.some((member) => member.role === 'QA Engineer'),
+    'Include a QA Engineer.',
   );
 
 export type TeamMember = z.infer<typeof teamMemberSchema>;

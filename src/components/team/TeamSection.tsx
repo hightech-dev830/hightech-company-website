@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import Reveal from '@/components/motion/Reveal';
 import { teamMembers as team } from '@/lib/team';
 import TeamCard from './TeamCard';
 import '@/styles/team.css';
@@ -12,7 +13,7 @@ export default function TeamSection({ compact = false }: { compact?: boolean }) 
       aria-labelledby={headingId}
     >
       <div className="shell">
-        <div className="team-section__heading">
+        <Reveal className="team-section__heading">
           <div>
             <p className="section-label">The team{hasSamples ? ' / Sample profiles' : ''}</p>
             <h2 className="section-heading" id={headingId}>
@@ -22,19 +23,13 @@ export default function TeamSection({ compact = false }: { compact?: boolean }) 
             </h2>
           </div>
           <p className="section-intro">
-            Different disciplines. A shared attention to the details that make software work for
-            people.
+            A six-person software team. Different disciplines, one shared attention to the details
+            that make products work for people.
           </p>
-        </div>
-        {hasSamples && (
-          <p className="team-section__notice">
-            Profiles marked “Sample profile” are fictional examples with illustrated avatars, not
-            actual HighTech personnel.
-          </p>
-        )}
+        </Reveal>
         <div className="team-grid">
-          {team.map((member) => (
-            <TeamCard key={member.id} member={member} />
+          {team.map((member, index) => (
+            <TeamCard key={member.id} member={member} delay={80 + index * 90} />
           ))}
         </div>
       </div>

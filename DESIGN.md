@@ -25,7 +25,7 @@ Base h2/h3 and body styles globally. On paper text is dark. Use var(--ink), var(
 
 ## Content integrity
 
-No verified project portfolio supplied. Replace invented client case studies with clearly marked concept explorations, no metrics or fake clients. No actual job openings supplied: talent-network invitation, NOT fabricated vacancies/benefits. Five team profiles only, explicit sample badges and optional real social links omitted when blank. Preserve existing footer contact data over dummy contact-page data. Contact form must NOT fake sent status; prepare a draft and visibly explain email app still requires Send. Do not install backend providers or add secrets.
+No verified project portfolio supplied. Replace invented client case studies with clearly marked concept explorations, no metrics or fake clients. No actual job openings supplied: talent-network invitation, NOT fabricated vacancies/benefits. Six team profiles, explicit sample badges and optional real social links omitted when blank. Preserve existing footer contact data over dummy contact-page data. Contact form must NOT fake sent status; prepare a draft and visibly explain email app still requires Send. Do not install backend providers or add secrets.
 
 ## Testing and ownership
 

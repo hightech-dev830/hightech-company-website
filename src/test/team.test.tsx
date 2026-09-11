@@ -62,13 +62,22 @@ describe('Team JSON validation', () => {
     ).toBe(false);
   });
 
-  it('requires a Founder & CEO in the five-person team', () => {
+  it('requires a Founder & Team Lead in the six-person team', () => {
     expect(teamSchema.safeParse([{ ...team[0], role: 'Engineer' }, ...team.slice(1)]).success).toBe(
       false,
     );
   });
 
-  it('accepts the configured five profiles', () => {
+  it('requires Full Stack and QA roles', () => {
+    expect(
+      teamSchema.safeParse([{ ...team[1], role: 'Engineer' }, team[0], ...team.slice(2)]).success,
+    ).toBe(false);
+    expect(
+      teamSchema.safeParse([...team.slice(0, 5), { ...team[5], role: 'Engineer' }]).success,
+    ).toBe(false);
+  });
+
+  it('accepts the configured six profiles', () => {
     expect(teamSchema.safeParse(team).success).toBe(true);
     expect(team.every((member) => typeof member.isSample === 'boolean')).toBe(true);
   });
@@ -124,19 +133,22 @@ describe('About team', () => {
     vi.resetModules();
   });
 
-  it('rejects a JSON edit that removes one of the required five members', async () => {
+  it('rejects a JSON edit that removes one of the required six members', async () => {
     vi.resetModules();
     vi.doMock('@/data/team.json', () => ({ default: team.slice(0, 4) }));
-    await expect(import('@/components/team/TeamSection')).rejects.toThrow(/exactly five/i);
+    await expect(import('@/components/team/TeamSection')).rejects.toThrow(/exactly six/i);
   });
-  it.each([false, true])('renders all five complete JSON profiles (compact=%s)', (compact) => {
+
+  it.each([false, true])('renders all six complete JSON profiles (compact=%s)', (compact) => {
     render(
       <MemoryRouter>
         <TeamSection compact={compact} />
       </MemoryRouter>,
     );
-    expect(screen.getAllByRole('article')).toHaveLength(5);
-    expect(screen.getByText('Founder & CEO')).toBeVisible();
+    expect(screen.getAllByRole('article')).toHaveLength(6);
+    expect(screen.getByText('Founder & Team Lead')).toBeVisible();
+    expect(screen.getByText('Full Stack Engineer')).toBeVisible();
+    expect(screen.getByText('QA Engineer')).toBeVisible();
     for (const member of team) {
       const card = within(screen.getByRole('article', { name: member.name }));
       expect(card.getByText(member.bio)).toBeVisible();
@@ -159,6 +171,7 @@ describe('About team', () => {
       );
     }
   });
+
   it('labels only the configured sample profiles', () => {
     render(
       <MemoryRouter>
@@ -168,5 +181,15 @@ describe('About team', () => {
     expect(screen.queryAllByText('Sample profile')).toHaveLength(
       team.filter((member) => member.isSample).length,
     );
+  });
+
+  it('uses a one-one-two-two layout rhythm', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <TeamSection />
+      </MemoryRouter>,
+    );
+    const cards = container.querySelectorAll('.team-grid > .team-card');
+    expect(cards).toHaveLength(6);
   });
 });

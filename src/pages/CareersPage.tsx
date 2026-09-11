@@ -16,7 +16,7 @@ export default function CareersPage() {
             with good people.
           </>
         }
-        description="We’re a five-person software studio. If you care about thoughtful products and the details that make them work, we’d like to know what you’re building."
+        description="We’re a six-person software studio. If you care about thoughtful products and the details that make them work, we’d like to know what you’re building."
       >
         <Link className="text-link" to="/about">
           Meet the studio <span aria-hidden="true">↗</span>

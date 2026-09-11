@@ -18,7 +18,7 @@ describe('studio homepage', () => {
     );
     expect(document.querySelector('canvas[data-starfield]')).toHaveAttribute('aria-hidden', 'true');
     expect(document.querySelector('.tech-sphere')).not.toBeInTheDocument();
-    expect(document.querySelectorAll('.team-card')).toHaveLength(5);
+    expect(document.querySelectorAll('.team-card')).toHaveLength(6);
     expect(screen.queryAllByText('Sample profile')).toHaveLength(
       team.filter((member) => member.isSample).length,
     );

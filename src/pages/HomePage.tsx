@@ -72,8 +72,8 @@ export default function HomePage() {
           </h1>
           <div className="hero-description entrance entrance-3">
             <p>
-              We’re HighTech. A five-person team turning ambitious ideas into thoughtful digital
-              products—with a human touch and serious engineering.
+              We’re HighTech. A six-person software team turning ambitious ideas into thoughtful
+              digital products—with a human touch and serious engineering.
             </p>
           </div>
           <div className="hero-actions entrance entrance-4">
@@ -255,7 +255,7 @@ export default function HomePage() {
           <div>
             <span className="section-label">04 / The people</span>
             <h2 className="section-heading">
-              Five minds.
+              Six minds.
               <br />
               One shared standard.
             </h2>

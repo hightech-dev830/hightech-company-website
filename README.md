@@ -52,7 +52,7 @@ docs/                   Content editing notes
 
 ## Content editing
 
-- **Team:** edit `src/data/team.json`. Five sample members, including Founder & CEO, are deliberately marked as examples. Replace names, roles, biographies, skills and avatar paths with approved real information, then update the sample flags. See `docs/team-content.md`.
+- **Team:** edit `src/data/team.json`. Six sample members, including Founder & Team Lead, Full Stack Engineer, and QA Engineer, are deliberately marked as examples. Replace names, roles, biographies, skills and avatar paths with approved real information, then update the sample flags. See `docs/team-content.md`.
 - **Contact details / calendar / GitHub:** edit `src/data/site.ts`. Existing footer contact details were preserved and centralized; check that these are your preferred public details.
 - **Project lab:** concept explorations are explicitly not client case studies. Do not remove disclosures until you replace them with verified work and have permission to publish. See `docs/projects-content.md`.
 - **Careers:** invitations to connect, not invented vacancies or employment benefits.
