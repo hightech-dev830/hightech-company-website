@@ -23,7 +23,7 @@ export default function TeamCard({ member, delay = 0 }: TeamCardProps) {
             loading="lazy"
             decoding="async"
           />
-          {member.isSample && <span className="team-card__sample">{member.name}</span>}
+          {member.isSample && <span className="team-card__sample">Sample profile</span>}
         </div>
         <div className="team-card__content">
           <p className="team-card__role">{member.role}</p>

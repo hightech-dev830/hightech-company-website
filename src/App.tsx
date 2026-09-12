@@ -1,10 +1,10 @@
-import { lazy, Suspense, useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef, type ReactElement } from 'react';
 import { Link, matchRoutes, Route, Routes, useLocation } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HomePage from '@/pages/HomePage';
 import PageHero from '@/components/shared/PageHero';
-import { site } from '@/data/site';
+import { applyDocumentSeo, routesSeo } from '@/lib/seo';
 
 const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'));
@@ -12,41 +12,36 @@ const IndustriesPage = lazy(() => import('@/pages/IndustriesPage'));
 const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
 const CareersPage = lazy(() => import('@/pages/CareersPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
-const pages = [
-  {
-    path: '/',
-    title: 'HighTech — Thoughtful software. Human by design.',
-    element: <HomePage />,
-  },
-  { path: '/about', title: 'The studio & team — HighTech', element: <AboutPage /> },
-  {
-    path: '/services',
-    title: 'Software, design & applied AI — HighTech',
-    element: <ServicesPage />,
-  },
-  {
-    path: '/industries',
-    title: 'Industries & applications — HighTech',
-    element: <IndustriesPage />,
-  },
-  { path: '/projects', title: 'Project lab — HighTech', element: <ProjectsPage /> },
-  { path: '/careers', title: 'Careers & collaboration — HighTech', element: <CareersPage /> },
-  { path: '/contact', title: 'Start a conversation — HighTech', element: <ContactPage /> },
-];
+
+const pageElements: Record<string, ReactElement> = {
+  '/': <HomePage />,
+  '/about': <AboutPage />,
+  '/services': <ServicesPage />,
+  '/industries': <IndustriesPage />,
+  '/projects': <ProjectsPage />,
+  '/careers': <CareersPage />,
+  '/contact': <ContactPage />,
+};
+
+const pages = routesSeo.map((route) => ({
+  path: route.path,
+  title: route.title,
+  element: pageElements[route.path],
+}));
 
 export default function App() {
   const { pathname, hash } = useLocation();
   const matchedPage = matchRoutes(pages, pathname)?.[0]?.route;
   const previousPath = useRef(pathname);
+
   useEffect(() => {
-    document.title = matchedPage?.title ?? 'Page not found — HighTech';
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) canonical.href = `${site.url}${matchedPage?.path ?? pathname}`;
+    applyDocumentSeo(matchedPage?.path ?? pathname);
     if (!hash) window.scrollTo({ top: 0, behavior: 'instant' });
     if (previousPath.current !== pathname)
       document.getElementById('main-content')?.focus({ preventScroll: true });
     previousPath.current = pathname;
   }, [pathname, hash, matchedPage]);
+
   return (
     <>
       <Header />

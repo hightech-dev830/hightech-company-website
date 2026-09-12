@@ -71,6 +71,10 @@ There is no mail backend or email-provider credential in this repository. The fo
 - System `prefers-reduced-motion` is always respected. Content remains readable while animation is disabled. Native scrolling is never intercepted.
 - Visible keyboard focus, skip link, accessible mobile menu, labeled forms and native disclosure controls.
 
+## SEO
+
+Per-route titles, descriptions, Open Graph/Twitter tags, canonical URLs, and JSON-LD (`Organization`, `WebSite`, `BreadcrumbList`, contact `FAQPage`) live in `src/data/seo-routes.json` and `src/lib/seo.ts`. The production build also writes static HTML shells per route (`scripts/prerender-meta.mjs`) so crawlers and social previews see the correct head tags without waiting on JavaScript. Edit `public/robots.txt` and `public/sitemap.xml` when the public site URL changes.
+
 ## Deployment
 
 The existing Vercel integration builds the `master` branch. `vercel.json` defines the Vite build/output, browser-route rewrites and response security headers. No Vercel secret is required for Git-triggered deployment.

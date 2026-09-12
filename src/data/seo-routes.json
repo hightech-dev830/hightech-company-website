@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/",
+    "title": "HighTech — Thoughtful software. Human by design.",
+    "description": "HighTech is an independent six-person software studio. We design and build thoughtful web platforms, mobile experiences, and applied AI solutions.",
+    "ogTitle": "HighTech — Good ideas. Built into great software."
+  },
+  {
+    "path": "/about",
+    "title": "The studio & team — HighTech",
+    "description": "Meet the HighTech software team—product thinking, design, engineering, and QA in one small studio focused on useful, well-built software.",
+    "ogTitle": "The HighTech studio & team"
+  },
+  {
+    "path": "/services",
+    "title": "Software, design & applied AI — HighTech",
+    "description": "Explore HighTech services: applied AI, web applications, mobile experiences, and product delivery from discovery through a considered release.",
+    "ogTitle": "Software, design & applied AI services"
+  },
+  {
+    "path": "/industries",
+    "title": "Industries & applications — HighTech",
+    "description": "See how HighTech approaches software across industries—starting with the real work people do, not buzzwords or a predetermined stack.",
+    "ogTitle": "Industries & applications"
+  },
+  {
+    "path": "/projects",
+    "title": "Project lab — HighTech",
+    "description": "Browse HighTech concept explorations from the project lab—design and engineering studies that show how we think about hard product problems.",
+    "ogTitle": "Project lab concept explorations"
+  },
+  {
+    "path": "/careers",
+    "title": "Careers & collaboration — HighTech",
+    "description": "Collaborate with HighTech. A six-person software studio looking for people who care about thoughtful products and the details that make them work.",
+    "ogTitle": "Careers & collaboration"
+  },
+  {
+    "path": "/contact",
+    "title": "Start a conversation — HighTech",
+    "description": "Contact HighTech to discuss a new product, a difficult technical question, or a system that needs to work better. Email, phone, or book a conversation.",
+    "ogTitle": "Start a conversation with HighTech"
+  }
+]
