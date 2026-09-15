@@ -1,278 +1,438 @@
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowRight, ArrowUpRight, Asterisk } from 'lucide-react';
-import Starfield from '@/components/motion/Starfield';
+import { ArrowRight, ArrowUpRight, Check, CornerDownRight } from 'lucide-react';
 import Reveal from '@/components/motion/Reveal';
 import ContactCTA from '@/components/shared/ContactCTA';
 import TeamSection from '@/components/team/TeamSection';
+import { companyServices, deliverySteps } from '@/data/company';
+import '@/styles/company-preview.css';
 
-const capabilities = [
-  {
-    n: '01',
-    title: 'Digital products',
-    detail:
-      'Web platforms, mobile apps, and the systems behind them. Designed for the people who use them.',
-    tags: 'Web · Mobile · Product design',
-  },
-  {
-    n: '02',
-    title: 'Applied intelligence',
-    detail:
-      'AI that does useful work. Knowledge assistants, thoughtful automation, and data-driven experiences.',
-    tags: 'AI integration · RAG · Automation',
-  },
-  {
-    n: '03',
-    title: 'Engineering partnerships',
-    detail:
-      'From the first technical decision to a considered launch. A small team that stays close to your product.',
-    tags: 'Architecture · Cloud · Delivery',
-  },
-];
-const process = [
+const questions = [
   [
-    'Understand',
-    'We ask the difficult questions early. Together, we define the problem, the constraints, and what success looks like.',
+    'Can you help shape an idea before development?',
+    'Yes. Discovery and prototyping help clarify the users, scope and technical constraints before committing to a full build. You do not need a finished specification to start a conversation.',
   ],
   [
-    'Make it tangible',
-    'Prototypes turn assumptions into something you can see, use, and challenge before the build.',
+    'Can you work with an existing product or team?',
+    'We can discuss focused improvements, integrations or a new part of an existing product. The starting point is understanding your codebase, delivery process and the people who will maintain the work.',
   ],
   [
-    'Build with care',
-    'Clear milestones, frequent demos, and maintainable code. You’re part of the process, not waiting outside it.',
+    'How are scope, timing and cost agreed?',
+    'These depend on the problem, the current systems and the work involved. We agree the scope, milestones and commercial terms before starting; the website does not provide a fixed quote or reserve a start date.',
   ],
   [
-    'Launch & evolve',
-    'We test the details, document the decisions, and plan what comes after the first release.',
+    'Are the projects shown here client work?',
+    'The featured projects are labelled concept explorations. They show possible product directions, not client engagements, delivered products or measured business results.',
   ],
 ];
 
 export default function HomePage() {
   return (
-    <>
-      <section className="home-hero">
-        <div className="hero-art" aria-hidden="true">
-          <div className="star-glow" />
-          <Starfield />
-          <div className="art-coordinate coordinate-top">FIG. 01 — POSSIBILITIES, IN MOTION</div>
-          <div className="art-coordinate coordinate-bottom">
-            <span className="crosshair">+</span> INDEPENDENT MINDS. SHARED ORBIT.
-          </div>
-        </div>
-        <div className="shell hero-content">
-          <div className="eyebrow entrance">
-            <span className="status-dot" /> Independent software studio
-          </div>
-          <h1 className="hero-title">
-            <span className="hero-line entrance entrance-1">Good ideas.</span>
-            <span className="hero-line entrance entrance-2">Built into</span>
-            <span className="hero-line hero-accent entrance entrance-3">
-              great software<span className="hero-period">.</span>
-            </span>
-          </h1>
-          <div className="hero-description entrance entrance-3">
-            <p>
-              We’re HighTech. A six-person software team turning ambitious ideas into thoughtful
-              digital products—with a human touch and serious engineering.
+    <div className="company-home">
+      <section className="company-hero">
+        <div className="shell company-hero-grid">
+          <div className="company-hero-copy entrance">
+            <p className="company-kicker">
+              <span /> Design. Development. Applied AI.
             </p>
+            <h1>
+              Digital products <br />
+              built around <br />
+              <em>your business.</em>
+            </h1>
+            <p className="company-lead">
+              Web applications, mobile experiences and practical AI tools. We bring design and
+              engineering together to turn complex workflows into software people can use with
+              confidence.
+            </p>
+            <div className="company-actions">
+              <Link className="button button-primary" to="/contact">
+                Discuss your project <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+              <Link className="text-link" to="/projects">
+                Explore our work <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+            </div>
+            <div className="company-hero-note">
+              <span>HighTech</span>
+              <span>From the first question to the next release.</span>
+            </div>
           </div>
-          <div className="hero-actions entrance entrance-4">
-            <Link to="/contact" className="button button-primary">
-              Start a project <ArrowUpRight size={19} />
-            </Link>
-            <Link to="/services" className="text-link">
-              Explore our capabilities <ArrowRight size={17} />
-            </Link>
-          </div>
-          <div className="hero-bottom entrance entrance-4">
-            <span>Design-led. Engineering-minded.</span>
-            <a href="#studio" className="scroll-cue">
-              Scroll to explore <ArrowDown size={15} />
-            </a>
-          </div>
+          <aside
+            className="company-starting-point entrance entrance-2"
+            aria-labelledby="starting-point-heading"
+          >
+            <div className="company-panel-top">
+              <span>Find your starting point</span>
+              <CornerDownRight size={22} aria-hidden="true" />
+            </div>
+            <h2 id="starting-point-heading">
+              What needs to
+              <br />
+              work better?
+            </h2>
+            <div className="company-starting-links">
+              <Link to="/services/web-development">
+                <span>
+                  <strong>Your customer experience</strong>
+                  <small>Portals, platforms & web applications</small>
+                </span>
+                <ArrowUpRight size={22} aria-hidden="true" />
+              </Link>
+              <a href="/services#service-web">
+                <span>
+                  <strong>Your day-to-day operations</strong>
+                  <small>Internal tools & connected workflows</small>
+                </span>
+                <ArrowUpRight size={22} aria-hidden="true" />
+              </a>
+              <a href="/services#service-ai">
+                <span>
+                  <strong>How your team uses knowledge</strong>
+                  <small>Applied AI & information access</small>
+                </span>
+                <ArrowUpRight size={22} aria-hidden="true" />
+              </a>
+            </div>
+            <div className="company-panel-bottom">
+              <span>Not sure yet?</span>
+              <Link to="/contact">
+                Let’s work it out together <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          </aside>
         </div>
       </section>
-      <div className="expertise-strip" aria-label="Our focus">
+
+      <div className="company-principles-band">
         <div className="shell">
-          <span>From what if to what’s next.</span>
-          <div>
-            <span>Product design</span>
-            <Asterisk />
-            <span>Web & mobile</span>
-            <Asterisk />
-            <span>Applied AI</span>
-          </div>
+          <span>Good software starts with good decisions.</span>
+          <ul>
+            <li>
+              <Check size={15} aria-hidden="true" /> Clear scope
+            </li>
+            <li>
+              <Check size={15} aria-hidden="true" /> Direct collaboration
+            </li>
+            <li>
+              <Check size={15} aria-hidden="true" /> Maintainable delivery
+            </li>
+          </ul>
         </div>
       </div>
-      <section className="section paper-section" id="studio">
+
+      <section
+        className="section paper-section company-services"
+        aria-labelledby="company-services-heading"
+      >
         <div className="shell">
-          <Reveal className="studio-intro">
-            <span className="section-label">01 / The studio</span>
+          <Reveal className="company-section-intro">
             <div>
-              <h2 className="section-heading">
-                Not another vendor.
+              <p className="section-label">Our services</p>
+              <h2 id="company-services-heading">
+                From the first idea
                 <br />
-                Your people for <span className="subtle-ink">the hard part.</span>
+                to the next release.
               </h2>
-              <div className="studio-intro-bottom">
+            </div>
+            <p>
+              A connected set of capabilities, shaped around the work you need to do. Start with one
+              problem. Build the right thing around it.
+            </p>
+          </Reveal>
+          <div className="company-service-grid">
+            {companyServices.map((service, i) => (
+              <a key={service.title} className="company-service-card" href={service.href}>
+                <div className="company-card-top">
+                  <span>0{i + 1}</span>
+                  <ArrowUpRight size={23} aria-hidden="true" />
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <span className="company-card-caption">{service.category}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section company-work" aria-labelledby="company-work-heading">
+        <div className="shell">
+          <Reveal className="company-section-intro">
+            <div>
+              <p className="section-label">Inside the project lab</p>
+              <h2 id="company-work-heading">
+                A closer look at
+                <br />
+                what could be next.
+              </h2>
+            </div>
+            <div>
+              <p>
+                Thoughtful interfaces start with useful questions. These are concept explorations,
+                not client case studies.
+              </p>
+              <Link className="text-link" to="/projects">
+                View the concept collection <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+            </div>
+          </Reveal>
+          <div className="company-work-grid">
+            <article className="company-work-card company-work-fieldnote">
+              <div className="company-work-visual">
+                <span className="company-work-label">Concept exploration / Knowledge systems</span>
+                <div className="company-work-word">
+                  Fieldnote<span>↗</span>
+                </div>
                 <p>
-                  Good software takes more than a stack of technologies. It takes people who listen
-                  closely, think clearly, and care about the details. That’s how we work.
+                  Connect the question.
+                  <br />
+                  Keep the source.
                 </p>
-                <Link to="/about" className="text-link">
-                  Get to know HighTech <ArrowUpRight size={18} />
+                <div className="company-work-flow" aria-label="Concept workflow">
+                  <span>Ask</span>
+                  <ArrowRight size={18} aria-hidden="true" />
+                  <span>Find the source</span>
+                  <ArrowRight size={18} aria-hidden="true" />
+                  <span>Review</span>
+                </div>
+              </div>
+              <div className="company-work-description">
+                <div>
+                  <h3>Knowledge that keeps its context.</h3>
+                  <p>A source-aware document workspace, with people in control of the answer.</p>
+                </div>
+                <Link className="company-round-link" to="/projects" aria-label="Explore Fieldnote">
+                  <ArrowUpRight aria-hidden="true" />
                 </Link>
               </div>
-            </div>
-          </Reveal>
-          <div className="capability-rows">
-            {capabilities.map((item) => (
-              <Reveal key={item.n}>
-                <Link to="/services" className="capability-row">
-                  <span className="row-number">{item.n}</span>
-                  <h3>{item.title}</h3>
-                  <div>
-                    <p>{item.detail}</p>
-                    <span className="row-tags">{item.tags}</span>
-                  </div>
-                  <ArrowUpRight className="row-arrow" />
+            </article>
+            <article className="company-work-card company-work-shelf">
+              <div className="company-work-visual">
+                <span className="company-work-label">Concept exploration / Digital commerce</span>
+                <div className="company-work-word">
+                  Shelf<span>↗</span>
+                </div>
+                <p>
+                  Less searching.
+                  <br />
+                  More finding.
+                </p>
+                <div className="company-shelf-index" aria-label="Concept focus">
+                  <span>01 / Discover</span>
+                  <span>02 / Compare</span>
+                  <span>03 / Choose</span>
+                </div>
+              </div>
+              <div className="company-work-description">
+                <div>
+                  <h3>A clearer path through the catalogue.</h3>
+                  <p>Exploring product discovery without hiding the details that matter.</p>
+                </div>
+                <Link className="company-round-link" to="/projects" aria-label="Explore Shelf">
+                  <ArrowUpRight aria-hidden="true" />
                 </Link>
-              </Reveal>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="solutions"
+        className="section paper-section company-solutions"
+        aria-labelledby="company-solutions-heading"
+      >
+        <div className="shell company-solutions-grid">
+          <Reveal>
+            <p className="section-label">Built around the work</p>
+            <h2 id="company-solutions-heading">
+              Your challenge.
+              <br />
+              Our starting point.
+            </h2>
+            <p className="company-body-copy">
+              The right solution is more than a list of features. It connects the people doing the
+              work with the information and tools they need.
+            </p>
+            <Link className="text-link" to="/services">
+              Explore our capabilities <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+          </Reveal>
+          <div className="company-solution-list">
+            {[
+              [
+                'Customer self-service',
+                'Give customers a clear place to manage requests, find information and take their next step.',
+                '/services/web-development',
+              ],
+              [
+                'Connected operations',
+                'Bring scattered information and manual handovers into a workflow your team can follow.',
+                '/services#service-web',
+              ],
+              [
+                'Knowledge & AI assistance',
+                'Make source information easier to find and review, without hiding uncertainty or removing human oversight.',
+                '/services#service-ai',
+              ],
+              [
+                'Work beyond the desk',
+                'Design mobile experiences around field conditions, devices and connectivity.',
+                '/services#service-mobile',
+              ],
+            ].map(([title, text, href]) => (
+              <a key={title} href={href}>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+                <ArrowUpRight size={23} aria-hidden="true" />
+              </a>
             ))}
           </div>
         </div>
       </section>
-      <section className="section explorations">
+
+      <section className="section company-industries" aria-labelledby="company-industries-heading">
         <div className="shell">
-          <Reveal className="section-heading-row">
+          <Reveal className="company-section-intro">
             <div>
-              <span className="section-label">02 / Possibilities</span>
-              <h2 className="section-heading">
-                A little less ordinary.
+              <p className="section-label">Different industries. Specific questions.</p>
+              <h2 id="company-industries-heading">
+                Understand the context.
                 <br />
-                <span className="muted">A lot more considered.</span>
+                Then build the solution.
               </h2>
             </div>
-            <Link to="/projects" className="text-link">
-              Explore the project lab <ArrowUpRight size={18} />
-            </Link>
-          </Reveal>
-          <div className="exploration-grid">
-            <Reveal>
-              <Link to="/projects" className="exploration-card exploration-ai">
-                <div className="concept-art" aria-hidden="true">
-                  <div className="intelligence-core">
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <span className="concept-art-label">CONTEXT → CLARITY</span>
-                  <div className="concept-brackets">
-                    <span>[</span>
-                    <span>]</span>
-                  </div>
-                </div>
-                <div className="exploration-meta">
-                  <div>
-                    <span className="section-label">Concept exploration / Applied AI</span>
-                    <h3>Knowledge, connected.</h3>
-                  </div>
-                  <ArrowUpRight />
-                </div>
-                <p>
-                  Exploring how a source-aware assistant can make complex information feel
-                  approachable.
-                </p>
+            <div>
+              <p>
+                Explore where software can help, from customer-facing experiences to the operations
+                behind them. Domain requirements guide the scope.
+              </p>
+              <Link className="text-link" to="/industries">
+                Explore application areas <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
-            </Reveal>
-            <Reveal delay={100}>
-              <Link to="/projects" className="exploration-card exploration-product">
-                <div className="concept-art" aria-hidden="true">
-                  <div className="product-sculpture">
-                    <div className="sculpture-slab slab-one" />
-                    <div className="sculpture-slab slab-two" />
-                    <div className="sculpture-slab slab-three" />
-                    <div className="sculpture-slab slab-four" />
-                  </div>
-                  <span className="concept-art-label">LESS FRICTION. MORE FLOW.</span>
-                </div>
-                <div className="exploration-meta">
-                  <div>
-                    <span className="section-label">Concept exploration / Digital products</span>
-                    <h3>Complexity, simplified.</h3>
-                  </div>
-                  <ArrowUpRight />
-                </div>
-                <p>
-                  Thinking through focused interfaces for the work that happens behind the scenes.
-                </p>
-              </Link>
-            </Reveal>
-          </div>
-          <p className="concept-disclaimer">
-            Design explorations, not client case studies. A glimpse into the kinds of problems we
-            like to solve.
-          </p>
-        </div>
-      </section>
-      <section className="section paper-section">
-        <div className="shell process-layout">
-          <Reveal>
-            <span className="section-label">03 / How we work</span>
-            <h2 className="section-heading">
-              Good chemistry.
-              <br />
-              Clear process.
-            </h2>
-            <p className="section-intro">
-              No black box. No disappearing act.
-              <br />
-              Just a shared goal and a considered path to it.
-            </p>
-            <Link to="/services" className="text-link">
-              How we build <ArrowUpRight size={18} />
-            </Link>
+            </div>
           </Reveal>
-          <div className="process-list">
-            {process.map(([title, description], i) => (
-              <Reveal key={title} delay={i * 50}>
-                <article className="process-row">
-                  <span className="process-number">0{i + 1}</span>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                  </div>
-                </article>
-              </Reveal>
+          <div className="company-industry-links">
+            {[
+              'Healthcare',
+              'Commerce & retail',
+              'Finance & operations',
+              'Education',
+              'Manufacturing',
+              'Logistics',
+            ].map((name) => (
+              <Link to="/industries" key={name}>
+                {name}
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
             ))}
           </div>
         </div>
       </section>
-      <section className="section team-teaser">
-        <Reveal className="shell split-layout">
+
+      <section
+        className="section paper-section company-process"
+        aria-labelledby="company-process-heading"
+      >
+        <div className="shell">
+          <Reveal className="company-section-intro">
+            <div>
+              <p className="section-label">How we work</p>
+              <h2 id="company-process-heading">
+                A clear process.
+                <br />
+                No black box.
+              </h2>
+            </div>
+            <p>
+              Know what we’re working toward, see progress as it happens and make the important
+              decisions together.
+            </p>
+          </Reveal>
+          <ol className="company-process-grid">
+            {deliverySteps.map((step, i) => (
+              <li key={step.title}>
+                <span className="company-step-number">0{i + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+                <span className="company-step-output">
+                  <Check size={15} aria-hidden="true" />
+                  {step.output}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section
+        className="section company-partnership"
+        aria-labelledby="company-partnership-heading"
+      >
+        <Reveal className="shell company-partnership-grid">
           <div>
-            <span className="section-label">04 / The people</span>
-            <h2 className="section-heading">
-              Six minds.
+            <p className="section-label">Why HighTech</p>
+            <h2 id="company-partnership-heading">
+              Design and engineering.
               <br />
-              One shared standard.
+              <em>At the same table.</em>
             </h2>
           </div>
           <div>
-            <p className="section-intro">
-              A deliberately small team, with design and engineering at the same table. You work
-              directly with the people doing the work.
+            <p>
+              Good software needs both a clear experience and a dependable foundation. We bring
+              those conversations together—from the first product decision through testing and
+              handover.
             </p>
-            <Link to="/about" className="button button-outline">
-              Meet the team <ArrowUpRight size={18} />
+            <ul>
+              <li>Direct conversations with the people doing the work.</li>
+              <li>Prototypes to test assumptions before bigger commitments.</li>
+              <li>Readable code and documentation for the next person.</li>
+            </ul>
+            <Link className="text-link" to="/about">
+              Get to know HighTech <ArrowUpRight size={17} aria-hidden="true" />
             </Link>
           </div>
         </Reveal>
       </section>
       <TeamSection compact />
-      <ContactCTA />
-    </>
+
+      <section className="section company-faq" aria-labelledby="company-faq-heading">
+        <div className="shell company-faq-grid">
+          <div>
+            <p className="section-label">Before we get started</p>
+            <h2 id="company-faq-heading">
+              A few things
+              <br />
+              worth knowing.
+            </h2>
+            <p className="company-body-copy">
+              Have a different question?
+              <br />
+              <Link className="text-link" to="/contact">
+                Let’s talk about it <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+            </p>
+          </div>
+          <div>
+            {questions.map(([question, answer]) => (
+              <details key={question}>
+                <summary>
+                  {question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+      <ContactCTA
+        title="Let’s build what’s next for your business."
+        description="Tell us what you want to improve, who it’s for and where you are today. A clear conversation is the first step."
+      />
+    </div>
   );
 }

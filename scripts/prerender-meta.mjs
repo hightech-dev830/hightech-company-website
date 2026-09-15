@@ -7,8 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, '..', 'dist');
 const siteUrl = 'https://hightech-company-website.vercel.app';
 const ogImage = `${siteUrl}/og-image.png`;
-const ogImageAlt =
-  'HighTech — Good ideas. Built into great software. Independent software studio.';
+const ogImageAlt = 'HighTech — Good ideas. Built into great software. Independent software studio.';
 
 function absoluteUrl(path) {
   if (!path || path === '/') return `${siteUrl}/`;
@@ -93,7 +92,7 @@ function injectOrganizationJsonLd(html, description) {
     ],
   };
 
-  const script = `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+  const script = `<script id="site-structured-data" type="application/ld+json">${JSON.stringify(data)}</script>`;
   if (html.includes('application/ld+json')) return html;
   return html.replace('</head>', `    ${script}\n  </head>`);
 }

@@ -1,0 +1,624 @@
+/* Service-detail styles stay inside the web-* namespace. */
+.web-service {
+  color: #f4f4ed;
+  background: #111310;
+  overflow-wrap: break-word;
+}
+
+.web-service .section-label {
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.web-service .button,
+.web-service .text-link {
+  font-size: 14px;
+}
+
+.web-service .section-heading {
+  max-width: 740px;
+  font-size: clamp(2.15rem, 3.8vw, 3.5rem);
+}
+
+.web-hero {
+  padding-bottom: clamp(64px, 7vw, 104px);
+}
+
+.web-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin: 0;
+  padding: 22px 0 38px;
+  list-style: none;
+  font-size: 14px;
+  color: #b8bfb1;
+}
+
+.web-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.web-breadcrumb li + li::before {
+  content: '/';
+  color: #727b68;
+}
+
+.web-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.web-breadcrumb a:hover {
+  color: #d5ff70;
+}
+
+.web-breadcrumb [aria-current] {
+  color: #f4f4ed;
+}
+
+.web-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.web-hero-copy .section-label {
+  color: #d5ff70;
+}
+
+.web-hero h1 {
+  font-size: clamp(2.7rem, 5.1vw, 4.8rem);
+  letter-spacing: -0.055em;
+  line-height: 1.07;
+  font-weight: 500;
+}
+
+.web-hero h1 > span {
+  display: block;
+  color: #d5ff70;
+}
+
+.web-lead {
+  max-width: 540px;
+  margin-top: 28px;
+  color: #bbc2b5;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.web-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.web-architecture {
+  margin: 0;
+  border: 1px solid #3e4835;
+  background: #1b2017;
+  padding: clamp(22px, 2.5vw, 36px);
+  border-radius: 4px;
+}
+
+.web-architecture-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 32px;
+  font-size: 23px;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
+.web-architecture-mark {
+  color: #d5ff70;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.web-architecture-layers {
+  display: grid;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.web-architecture-layers > li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  position: relative;
+  padding: 22px 18px;
+  background: #f4f4ed;
+  color: #171b14;
+  border: 1px solid #f4f4ed;
+  border-radius: 3px;
+}
+
+.web-architecture-layers > li + li::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 30px;
+  height: 25px;
+  border-left: 1px solid #859176;
+}
+
+.web-architecture-layers > li:nth-child(2) {
+  margin-left: 16px;
+  background: #d5ff70;
+  border-color: #d5ff70;
+}
+
+.web-architecture-layers > li:nth-child(3) {
+  margin-left: 32px;
+  background: #252d20;
+  color: #f4f4ed;
+  border-color: #62714f;
+}
+
+.web-architecture-layers strong {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.web-architecture-layers p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.web-layer-number {
+  align-self: start;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+.web-architecture figcaption {
+  display: grid;
+  gap: 4px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #414c36;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #bbc5af;
+}
+
+.web-section-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 32px 80px;
+  align-items: end;
+  margin-bottom: 52px;
+}
+
+.web-section-copy {
+  max-width: 550px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.web-scope-row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  padding-block: 36px;
+  border-top: 1px solid #cbd0c2;
+}
+
+.web-index {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: #60704e;
+  padding-top: 4px;
+}
+
+.web-scope-row h3 {
+  font-size: 27px;
+}
+
+.web-scope-row p {
+  color: #565e50;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-top: 14px;
+  max-width: 500px;
+}
+
+.web-scope-row ul {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding-top: 4px;
+  font-size: 15px;
+}
+
+.web-scope-row li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.web-scope-row li::before {
+  content: '↗';
+  color: #4c652e;
+  flex-shrink: 0;
+}
+
+.web-scope-note {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 20px 40px;
+  margin-top: 18px;
+  padding: 28px 32px;
+  background: #e4e8da;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.web-scope-note strong {
+  font-weight: 650;
+  font-size: 18px;
+}
+
+.web-scope-note p {
+  color: #4b5640;
+}
+
+.web-process-layout,
+.web-faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(40px, 8vw, 112px);
+}
+
+.web-process-intro > .web-section-copy,
+.web-faq-layout > div > .web-section-copy {
+  margin-top: 24px;
+}
+
+.web-process-principle {
+  margin-top: 44px;
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+}
+
+.web-process-principle span {
+  color: #d5ff70;
+}
+
+.web-process-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.web-process-list > li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 30px;
+  border-top: 1px solid #3b4233;
+}
+
+.web-process-list > li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.web-process-list > li:last-child {
+  padding-bottom: 0;
+}
+
+.web-process-list .web-index {
+  color: #d5ff70;
+}
+
+.web-process-list h3 {
+  font-size: 25px;
+}
+
+.web-process-list p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #b8bfb0;
+  margin-block: 14px 18px;
+}
+
+.web-process-output {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #4a573b;
+  color: #d5ff70;
+  font-size: 14px;
+}
+
+.web-work .section-heading span {
+  color: #626c57;
+}
+
+.web-concept-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 32px;
+}
+
+.web-concept {
+  border: 1px solid #cbd0c2;
+  display: flex;
+  flex-direction: column;
+}
+
+.web-concept-question {
+  padding: clamp(24px, 3vw, 42px);
+  min-height: 300px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background: #d5ff70;
+  color: #171b14;
+}
+
+.web-concept:nth-child(even) .web-concept-question {
+  background: #252e1f;
+  color: #f4f4ed;
+}
+
+.web-concept-label {
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.web-concept-question p {
+  margin-block: 28px;
+  font-size: clamp(23px, 2.2vw, 31px);
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+
+.web-concept-domain {
+  margin-top: auto;
+  font-size: 14px;
+}
+
+.web-concept-copy {
+  padding: 30px;
+}
+
+.web-concept-copy h3 {
+  font-size: 32px;
+}
+
+.web-concept-copy > p {
+  color: #565e50;
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.web-concept-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 24px;
+  color: #4d5d3c;
+  font-size: 14px;
+}
+
+.web-concept-tags li {
+  border-bottom: 1px solid #c0c9b5;
+  padding-bottom: 4px;
+}
+
+.web-work-link {
+  margin-top: 28px;
+}
+
+.web-faq-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 12px;
+  margin-top: 24px;
+  color: #d5ff70;
+}
+
+.web-faq-list details {
+  border-top: 1px solid #424a39;
+}
+
+.web-faq-list details:last-child {
+  border-bottom: 1px solid #424a39;
+}
+
+.web-faq-list summary {
+  min-height: 64px;
+  padding: 24px 0;
+  font-size: 17px;
+  font-weight: 550;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+.web-faq-list summary::marker {
+  color: #d5ff70;
+  font-size: 14px;
+}
+
+.web-faq-list summary:hover,
+.web-faq-list details[open] summary {
+  color: #d5ff70;
+}
+
+.web-faq-list details > p {
+  padding: 0 0 26px;
+  color: #bdc5b5;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.web-service .contact-cta h2 {
+  max-width: 850px;
+}
+
+.web-service .contact-cta p {
+  font-size: 16px;
+  max-width: 630px;
+}
+
+@media (max-width: 1050px) {
+  .web-hero-layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .web-architecture {
+    padding: 22px;
+  }
+
+  .web-architecture-layers > li {
+    gap: 12px;
+    padding: 18px 14px;
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .web-layer-number {
+    display: none;
+  }
+
+  .web-section-top {
+    gap: 32px;
+  }
+
+  .web-scope-row {
+    gap: 22px;
+    grid-template-columns: 30px minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .web-breadcrumb ol {
+    padding-block: 14px 28px;
+    gap: 0 10px;
+  }
+
+  .web-breadcrumb li {
+    gap: 10px;
+  }
+
+  .web-hero-layout,
+  .web-section-top,
+  .web-process-layout,
+  .web-faq-layout,
+  .web-concept-grid,
+  .web-scope-note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .web-hero-layout {
+    gap: 42px;
+  }
+
+  .web-hero h1 {
+    max-width: 630px;
+    font-size: clamp(2.7rem, 8.2vw, 4.25rem);
+  }
+
+  .web-lead {
+    font-size: 16px;
+  }
+
+  .web-architecture {
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .web-section-top {
+    margin-bottom: 36px;
+    gap: 22px;
+  }
+
+  .web-scope-row {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 14px;
+    padding-block: 28px;
+  }
+
+  .web-scope-row ul {
+    grid-column: 2;
+    margin-top: 6px;
+  }
+
+  .web-scope-note {
+    padding: 24px;
+    gap: 12px;
+  }
+
+  .web-process-principle {
+    margin-top: 24px;
+  }
+
+  .web-concept-question {
+    min-height: auto;
+  }
+
+  .web-concept-question p {
+    font-size: 26px;
+  }
+
+  .web-concept-copy {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .web-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .web-hero-actions > .text-link {
+    align-self: start;
+  }
+
+  .web-architecture {
+    padding: 20px 16px;
+  }
+
+  .web-architecture-layers > li:nth-child(2) {
+    margin-left: 8px;
+  }
+
+  .web-architecture-layers > li:nth-child(3) {
+    margin-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .web-service *,
+  .web-service *::before,
+  .web-service *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

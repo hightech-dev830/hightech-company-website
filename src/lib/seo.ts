@@ -88,7 +88,14 @@ export function breadcrumbJsonLd(pathname: string) {
   const seo = getRouteSeo(pathname);
   if (seo.noindex || seo.path === '/') return null;
 
-  const label = seo.ogTitle ?? seo.title.replace(/\s—\sHighTech$/, '');
+  const ancestors = routesSeo
+    .filter(
+      (route) =>
+        route.path !== '/' &&
+        !route.noindex &&
+        (seo.path === route.path || seo.path.startsWith(`${route.path}/`)),
+    )
+    .sort((a, b) => a.path.split('/').length - b.path.split('/').length);
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -99,12 +106,12 @@ export function breadcrumbJsonLd(pathname: string) {
         name: 'Home',
         item: absoluteUrl('/'),
       },
-      {
+      ...ancestors.map((route, index) => ({
         '@type': 'ListItem',
-        position: 2,
-        name: label,
-        item: absoluteUrl(seo.path),
-      },
+        position: index + 2,
+        name: route.ogTitle ?? route.title.replace(/\s—\sHighTech$/, ''),
+        item: absoluteUrl(route.path),
+      })),
     ],
   };
 }
@@ -137,9 +144,7 @@ function upsertMeta(selector: string, attributes: Record<string, string>) {
 
 const STRUCTURED_DATA_ID = 'site-structured-data';
 
-export function applyStructuredData(
-  data: Array<Record<string, unknown> | null | undefined>,
-) {
+export function applyStructuredData(data: Array<Record<string, unknown> | null | undefined>) {
   const payload = data.filter(Boolean);
   let script = document.getElementById(STRUCTURED_DATA_ID) as HTMLScriptElement | null;
   if (!script) {

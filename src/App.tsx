@@ -2,12 +2,14 @@ import { lazy, Suspense, useEffect, useRef, type ReactElement } from 'react';
 import { Link, matchRoutes, Route, Routes, useLocation } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import HashScroll from '@/components/layout/HashScroll';
 import HomePage from '@/pages/HomePage';
 import PageHero from '@/components/shared/PageHero';
 import { applyDocumentSeo, routesSeo } from '@/lib/seo';
 
 const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'));
+const WebDevelopmentPage = lazy(() => import('@/pages/WebDevelopmentPage'));
 const IndustriesPage = lazy(() => import('@/pages/IndustriesPage'));
 const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
 const CareersPage = lazy(() => import('@/pages/CareersPage'));
@@ -17,6 +19,7 @@ const pageElements: Record<string, ReactElement> = {
   '/': <HomePage />,
   '/about': <AboutPage />,
   '/services': <ServicesPage />,
+  '/services/web-development': <WebDevelopmentPage />,
   '/industries': <IndustriesPage />,
   '/projects': <ProjectsPage />,
   '/careers': <CareersPage />,
@@ -75,6 +78,7 @@ export default function App() {
                 }
               />
             </Routes>
+            <HashScroll />
           </Suspense>
         </div>
       </main>

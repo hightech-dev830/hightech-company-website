@@ -1,9 +1,9 @@
 [
   {
     "path": "/",
-    "title": "HighTech — Thoughtful software. Human by design.",
-    "description": "HighTech is an independent six-person software studio. We design and build thoughtful web platforms, mobile experiences, and applied AI solutions.",
-    "ogTitle": "HighTech — Good ideas. Built into great software."
+    "title": "HighTech — Digital products built around your business.",
+    "description": "HighTech designs and develops web applications, mobile experiences and practical AI tools. From the first prototype to a considered release.",
+    "ogTitle": "HighTech — Digital products built around your business."
   },
   {
     "path": "/about",
@@ -16,6 +16,12 @@
     "title": "Software, design & applied AI — HighTech",
     "description": "Explore HighTech services: applied AI, web applications, mobile experiences, and product delivery from discovery through a considered release.",
     "ogTitle": "Software, design & applied AI services"
+  },
+  {
+    "path": "/services/web-development",
+    "title": "Web application development — HighTech",
+    "description": "Customer portals, internal tools, SaaS products and connected APIs. Explore HighTech’s web application scope, delivery process and practical project questions.",
+    "ogTitle": "Web application development — HighTech"
   },
   {
     "path": "/industries",

@@ -1,33 +1,26 @@
 import { test, expect } from '@playwright/test';
 
-test('starfield suspends offscreen and resumes after visibility and route changes', async ({
-  page,
-}) => {
+test('section reveals remain readable after scrolling and route changes', async ({ page }) => {
   await page.goto('/');
-  const canvas = page.locator('canvas[data-starfield]');
-  await expect(canvas).toBeVisible();
-  await page.evaluate(() => document.fonts.ready);
-  const frame = () => canvas.evaluate((node) => (node as HTMLCanvasElement).toDataURL());
-  const first = await frame();
-  await expect.poll(frame).not.toBe(first);
-  await page.locator('footer').scrollIntoViewIfNeeded();
-  await expect(canvas).not.toBeInViewport();
-  await page.evaluate(
-    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
-  );
-  const offscreen = await frame();
-  await page.waitForTimeout(250);
-  expect(await frame()).toBe(offscreen);
-  await page.locator('main h1').scrollIntoViewIfNeeded();
-  await expect(canvas).toBeInViewport();
-  await expect.poll(frame).not.toBe(offscreen);
+  const reveal = page.locator('.company-partnership .reveal');
+  await expect(reveal).toHaveAttribute('data-pending', 'true');
+  await reveal.scrollIntoViewIfNeeded();
+  await expect(reveal).toHaveAttribute('data-pending', 'false');
+  await expect(reveal).toHaveCSS('opacity', '1');
   await page
     .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Services' })
+    .getByRole('link', { name: 'Services', exact: true })
     .click();
-  await expect(canvas).toHaveCount(0);
+  await expect(page).toHaveURL(/\/services$/);
+  await expect(reveal).toHaveCount(0);
   await page.goBack();
-  await expect(canvas).toBeVisible();
-  const returned = await frame();
-  await expect.poll(frame).not.toBe(returned);
+  await page.locator('.company-partnership').scrollIntoViewIfNeeded();
+  await expect(page.locator('.company-partnership .reveal')).toHaveCSS('opacity', '1');
+  await page.getByRole('button', { name: 'Pause animations' }).click();
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Play animations' })).toBeVisible();
+  const hidden = await page
+    .locator('.reveal')
+    .evaluateAll((nodes) => nodes.filter((node) => getComputedStyle(node).opacity === '0').length);
+  expect(hidden).toBe(0);
 });
